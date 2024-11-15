@@ -1,0 +1,5 @@
+FROM osrf/ros:jazzy-desktop
+RUN apt update -y && apt upgrade -y && apt-get install software-properties-common -y && add-apt-repository ppa:maveonair/helix-editor -y && apt update -y && apt install wget helix clangd golang-1.23-go -y && apt-get clean -y
+# extra ROS2 things below
+RUN apt install ros-jazzy-xacro ros-jazzy-joint-state-publisher-gui -y
+ENV PATH "$PATH:/usr/lib/go-1.23/bin"
